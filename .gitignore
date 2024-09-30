@@ -1,0 +1,78 @@
+# Archivos de compilación
+
+bin/
+
+target/
+
+
+# Archivos generados por Eclipse
+
+.classpath
+
+.project
+
+.settings/
+
+
+# Archivos de configuración de Eclipse
+
+.metadata/
+
+
+# Archivos de compilación de Gradle
+
+.gradle/
+
+build/
+
+
+# Archivos de compilación de Maven
+
+pom.xml.tag
+
+pom.xml.releaseBackup
+
+pom.xml.versionsBackup
+
+pom.xml.next
+
+
+# Archivos temporales y de respaldo
+
+*.tmp
+
+*.log
+
+*.bak
+
+*.swp
+
+*.swo
+
+
+# Archivos de configuración de usuario de Eclipse
+
+*.user
+
+*.preferences
+
+
+# Archivos de librerías
+
+lib/
+
+
+# Archivos de salida de Javadoc
+
+javadoc/
+
+
+# Archivos de salida de JavaDoc
+
+docs/
+
+
+# Archivos de distribución
+
+dist/
+
