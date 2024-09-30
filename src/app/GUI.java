@@ -46,7 +46,7 @@ class Panel extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 6904185910328873802L;
 
 	// Variables del juego
-	private boolean hasUpdatedWinCount = false;
+	private boolean hasUpdatedWinCount = false; 
 	private int lastWinner = -1;
 	boolean playerX; // Indica si es el turno del jugador X
 	boolean gameDone = false; // Indica si el juego ha terminado
@@ -109,7 +109,7 @@ class Panel extends JPanel implements ActionListener {
 			}
 		}
 		boton.setVisible(false); // Ocultar el botón al jugar
-
+		
 	}
 
 	public void paintComponent(Graphics page) {
@@ -135,64 +135,64 @@ class Panel extends JPanel implements ActionListener {
 	}
 
 	private void checkWinner() {
-		winner = 0; // No hay ganador inicialmente
+	    winner = 0; // No hay ganador inicialmente
 
-		// Comprobar filas por si hay secuencia ganadora
-		for (int i = 0; i < 3; i++) {
-			if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != 0) {
-				winner = board[i][0]; // Hay un ganador en filas
-				break; // Salir del bucle
-			}
-			if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != 0) {
-				winner = board[0][i]; // Hay un ganador en columnas
-				break; // Salir del bucle
-			}
-		}
+	    //Comprobar filas por si hay secuencia ganadora
+	    for (int i = 0; i < 3; i++) {
+	        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != 0) {
+	            winner = board[i][0]; // Hay un ganador en filas
+	            break; // Salir del bucle
+	        }
+	        if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != 0) {
+	            winner = board[0][i]; // Hay un ganador en columnas
+	            break; // Salir del bucle
+	        }
+	    }
 
-		// Comprobar diagonales por si hay secuencia ganador
-		if (winner == 0) { // Solo comprobar si no hay ganador aún
-			if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != 0) {
-				winner = board[0][0]; // Hay un ganador en la diagonal
-			} else if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != 0) {
-				winner = board[0][2]; // Hay un ganador en la otra diagonal
-			}
-		}
+	    // Comprobar diagonales por si hay secuencia ganador
+	    if (winner == 0) { // Solo comprobar si no hay ganador aún
+	        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != 0) {
+	            winner = board[0][0]; // Hay un ganador en la diagonal
+	        } else if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != 0) {
+	            winner = board[0][2]; // Hay un ganador en la otra diagonal
+	        }
+	    }
 
-		// Verificar si hay un empate
-		boolean draw = true; // Inicializar como empate
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				if (board[i][j] == 0) {
-					draw = false; // No es un empate si hay al menos un espacio vacío
-				}
-			}
-		}
+	    // Verificar si hay un empate
+	    boolean draw = true; // Inicializar como empate
+	    for (int i = 0; i < 3; i++) {
+	        for (int j = 0; j < 3; j++) {
+	            if (board[i][j] == 0) {
+	                draw = false; // No es un empate si hay al menos un espacio vacío
+	            }
+	        }
+	    }
 
-		// Manejar el estado del juego usando switch
-		switch (winner) {
-		case 0: // No hay ganador aún
-			// Verificar si hay un empate
-			if (draw) {
-				winner = 3; // Indicar un empate
-				gameDone = true; // El juego ha terminado
-				boton.setVisible(true); // Mostrar botón para reiniciar
-			}
-			break;
-		case 1: // Jugador X gana
-		case 2: // Jugador O gana
-			gameDone = true; // El juego ha terminado
-			lastWinner = winner; // Guardar el último ganador
-			// Solo actualizar si no se ha hecho antes
-			if (!hasUpdatedWinCount) {
-				updateWinCount(); // Actualizar contador de victorias
-				hasUpdatedWinCount = true; // Marcar que se ha actualizado el conteo
-			}
-			boton.setVisible(true); // Mostrar botón para reiniciar
-			break;
-
-		}
-	}
-
+	    // Manejar el estado del juego usando switch
+	    switch (winner) {
+	    case 0: // No hay ganador aún
+            // Verificar si hay un empate
+            if (draw) {
+                winner = 3; // Indicar un empate
+                gameDone = true; // El juego ha terminado
+                boton.setVisible(true); // Mostrar botón para reiniciar
+            }
+            break;
+	        case 1: // Jugador X gana
+	        case 2: // Jugador O gana
+	            gameDone = true; // El juego ha terminado
+	            lastWinner = winner; // Guardar el último ganador
+	            // Solo actualizar si no se ha hecho antes
+	            if (!hasUpdatedWinCount) { 
+	                updateWinCount(); // Actualizar contador de victorias
+	                hasUpdatedWinCount = true; // Marcar que se ha actualizado el conteo
+	            }
+	            boton.setVisible(true); // Mostrar botón para reiniciar
+	            break;
+	        
+	       
+	            
+	    }}
 	private void updateWinCount() {
 		if (winner == 1) {
 			player1wins++; // Incrementar victorias del jugador X
