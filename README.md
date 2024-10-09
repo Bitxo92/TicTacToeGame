@@ -50,5 +50,5 @@ This is a **Tic-Tac-Toe** game developed in Java using **Swing** for the graphic
 
 ## License
 
-This project is licensed under the GNU General Public License (GPL) v3.0. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License (GPL) v3.0. See the [LICENSE](LICENSE.md) file for details.
 
